@@ -1,7 +1,7 @@
 from ManejadorFlores import ManejadorFlores
 from Flores import Flores
 class Ramo:
-    __tamanio = 0
+    __tamanio = ''
     __flores =  None
     
     def __init__(self, tamanio):

@@ -18,7 +18,7 @@ class Menu:
     def opciones(self):
             os.system("cls")
             continuar = True
-
+            self.__flores.Carga()
 
             while continuar:
                 print("[1] Registrar un ramo vendido (instancia de la clase ramo), solicitando las flores que se pondrán en el ramo.")
@@ -29,13 +29,27 @@ class Menu:
                 os.system("cls")
 
                 if(self.__op == 1):
-                    print("Seleccione la flor que desea agregar al ramo")
-                    flor = input(flor)
+                    codigo = int(input("Ingrese el codigo de la flor: "))
+                    v = self.__flores.BuscarFlor(codigo)
+                    if(v == -1):
+                        print("No existe la flor")
+                    else:
+                        tamanio = input("Ingrese el tamaño del ramo: ")
+                        while (codigo != -1):
+                            print("Ingrese cantidad de flores a agregar: ")
+                            cantidad = int(input())
+                        
+                            r = Ramo(tamanio)
+                            for i in range(cantidad):
+                                r.AgregarFlor(v)
+                            codigo = int(input("Ingrese el codigo de la flor: "))
+
+                        self.__ramo.AgregarRamo(r)
     
-                elif(self.__op ==2):
+                # elif(self.__op ==2):
 
         
-                elif(self.__op ==3):
+                # elif(self.__op ==3):
 
                 elif(self.__op == 0):
                     continuar = not continuar

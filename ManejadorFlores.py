@@ -8,7 +8,7 @@ class ManejadorFlores:
     __cantidad = 0
     __incremento = 1
 
-    def __init__(self, dimension, cantidad, incremento):
+    def __init__(self, dimension=1, cantidad=0, incremento=1):
         self.__flores = np.empty(dimension, dtype=Flores)
         self.__dimension = dimension
         self.__cantidad = cantidad
@@ -18,7 +18,7 @@ class ManejadorFlores:
     def agregarFlor(self, unaFlor:Flores):
         if self.__dimension == self.__cantidad:
             self.__dimension += self.__incremento
-            self.__flores = self.__flores.resize(self.__dimension)
+            self.__flores = self.__flores.resize(self.__dimension, refcheck=False)
         self.__flores[self.__cantidad] = unaFlor
         self.__cantidad += 1
 
@@ -39,3 +39,14 @@ class ManejadorFlores:
     def getFlor(self, indice):
         return self.__flores[indice]
     
+    def BuscarFlor(self, codigo):
+        i=0
+        band = False
+        while i < self.__cantidad and not band:
+            if self.__flores[i].getNumero() == codigo:
+                band = True
+            else:
+                i += 1
+        if not band:
+            i = -1
+        return i
