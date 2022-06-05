@@ -42,10 +42,9 @@ class ManejadorRamo:
     def porTamaño(self,tamañoPorTeclado):
         ant = None
         for ramo in self.__ramosVendidos:
-            if(ramo.getTamanio() == tamañoPorTeclado.capitalize()):
+            if(ramo.getTamaño() == tamañoPorTeclado.capitalize()):
                 for flores in ramo.getLista():
                     if(ant != flores):
                         print("".center(20,"-"))
                         print(flores)
                         ant = flores
-
