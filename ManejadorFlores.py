@@ -18,7 +18,7 @@ class ManejadorFlores:
     def agregarFlor(self, unaFlor:Flores):
         if self.__dimension == self.__cantidad:
             self.__dimension += self.__incremento
-            self.__flores = self.__flores.resize(self.__dimension, refcheck=False)
+            self.__flores.resize(self.__dimension, refcheck=False)
         self.__flores[self.__cantidad] = unaFlor
         self.__cantidad += 1
 
@@ -36,6 +36,9 @@ class ManejadorFlores:
         for i in range(self.__cantidad):
             cadena += "{}{}{}\n".format(self.__flores[i].getNumero(), self.__flores[i].getNombre(), self.__flores[i].getColor())
     
+    def getLista(self):
+        return self.__flores
+    
     def getFlor(self, indice):
         return self.__flores[indice]
     
@@ -50,3 +53,10 @@ class ManejadorFlores:
         if not band:
             i = -1
         return i
+    
+    def MostrarModaFlores(self):
+        self.__flores.sort()
+        print("Top 5 flores mas vendidas")
+        for i in range(5):
+            print("".center(20),"-")
+            print(self.__flores[i])

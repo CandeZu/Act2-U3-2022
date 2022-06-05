@@ -17,4 +17,15 @@ class Ramo:
     def __str__(self):
         return "Tamaño: " + self.__tamanio + " Flores: " + self.__flores
 
+    def mostrar(self):
+        print("Tamaño:{}".format(self.__tamanio.capitalize()))
+        for flor in self.__flores:
+            print("".center(20,"-"))
+            print(flor)
 
+def getCantFloresNumero(self, numero) ->int:
+        cont = 0
+        for unaFlor in self.__flores:
+            if unaFlor.getNumero() == numero:
+                cont += 1
+        return cont

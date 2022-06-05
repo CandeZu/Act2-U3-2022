@@ -29,27 +29,31 @@ class Menu:
                 os.system("cls")
 
                 if(self.__op == 1):
-                    codigo = int(input("Ingrese el codigo de la flor: "))
-                    v = self.__flores.BuscarFlor(codigo)
-                    if(v == -1):
-                        print("No existe la flor")
-                    else:
-                        tamanio = input("Ingrese el tamaño del ramo: ")
-                        while (codigo != -1):
-                            print("Ingrese cantidad de flores a agregar: ")
-                            cantidad = int(input())
+                    # codigo = int(input("Ingrese el codigo de la flor: "))
+                    # v = self.__flores.BuscarFlor(codigo)
+                    # if(v == -1):
+                    #     print("No existe la flor")
+                    # else:
+                    #     tamanio = input("Ingrese el tamaño del ramo: ")
+                    #     while (codigo != -1):
+                    #         print("Ingrese cantidad de flores a agregar: ")
+                    #         cantidad = int(input())
                         
-                            r = Ramo(tamanio)
-                            for i in range(cantidad):
-                                r.AgregarFlor(v)
-                            codigo = int(input("Ingrese el codigo de la flor: "))
+                    #         r = Ramo(tamanio)
+                    #         for i in range(cantidad):
+                    #             r.AgregarFlor(v)
+                    #         codigo = int(input("Ingrese el codigo de la flor: "))
 
-                        self.__ramo.AgregarRamo(r)
+                    #     self.__ramo.AgregarRamo(r)
+                    #     print("Ramo agregado")
     
-                # elif(self.__op ==2):
-
+                    self.__ramo.agregarRamo(self.__flores)
+                elif(self.__op ==2):
+                    self.__flores.MostrarModaFlores()
         
-                # elif(self.__op ==3):
+                elif(self.__op ==3):
+                    ramo = input("Ingrese el tamaño del ramo: ")
+                    self.__ramo.porTamaño(ramo)
 
                 elif(self.__op == 0):
                     continuar = not continuar
